@@ -1,41 +1,25 @@
-public class RolesAndPermissions extends User {
-    //        ************************************************************ Behaviours/Methods ************************************************************
+import java.util.Map;
 
-    /**
-     * Checks if the admin with specified credentials is registered or not.
-     * @param username of the imaginary admin
-     * @param password of the imaginary admin
-     * @return -1 if admin not found, else index of the admin in the array.
-     */
+public class RolesAndPermissions {
+
+    private static final Map<String, String> adminCredentials = Map.of(
+        "admin1", "password1",
+        "admin2", "password2",
+        "admin3", "password3"
+    );
+
+   
     public int isPrivilegedUserOrNot(String username, String password) {
-        int isFound = -1;
-        for (int i = 0; i < adminUserNameAndPassword.length; i++) {
-            if (username.equals(adminUserNameAndPassword[i][0])) {
-                if (password.equals(adminUserNameAndPassword[i][1])) {
-                    isFound = i;
-                    break;
-                }
-            }
-        }
-        return isFound;
+        return adminCredentials.containsKey(username) && adminCredentials.get(username).equals(password)
+                ? 1 : -1;
     }
 
-    /**
-     * Checks if the passenger with specified credentials is registered or not.
-     * @param email of the specified passenger
-     * @param password of the specified passenger
-     * @return 1 with the userID if the passenger is registered, else 0
-     */
     public String isPassengerRegistered(String email, String password) {
-        String isFound = "0";
-        for (Customer c : Customer.customerCollection) {
-            if (email.equals(c.getEmail())) {
-                if (password.equals(c.getPassword())) {
-                    isFound = "1-" + c.getUserID();
-                    break;
-                }
-            }
+        Customer customer = Customer.getCustomerByEmail(email);
+        if (customer != null && customer.getPassword().equals(password)) {
+            return "1-" + customer.getUserID();
         }
-        return isFound;
+        return "0";
     }
 }
+
