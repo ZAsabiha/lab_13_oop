@@ -9,8 +9,7 @@ public class Customer {
     private final String password;
     private String address;
     private int age;
-    public List<Flight> flightsRegisteredByUser;
-    public List<Integer> numOfTicketsBookedByUser;
+
 
     public Customer(String name, String email, String password, String phone, String address, int age, String userID) {
         this.name = name;
