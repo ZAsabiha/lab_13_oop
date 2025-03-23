@@ -1,4 +1,4 @@
-// Customer.java
+
 import java.util.*;
 
 public class Customer {
@@ -19,8 +19,7 @@ public class Customer {
         this.phone = phone;
         this.address = address;
         this.age = age;
-        this.flightsRegisteredByUser = new ArrayList<>();
-        this.numOfTicketsBookedByUser = new ArrayList<>();
+   
     }
 
     public String getUserID() { return userID; }
