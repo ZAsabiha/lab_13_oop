@@ -105,7 +105,7 @@ public class Flight extends FlightDistance {
         }
     }
 
-    // Getters
+
     public String getFlightNumber() { return flightNumber; }
     public int getAvailableSeats() { return availableSeats; }
     public String getFlightSchedule() { return flightSchedule; }
