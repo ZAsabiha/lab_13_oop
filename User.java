@@ -19,6 +19,8 @@ public class User {
      */
     static String[][] adminUserNameAndPassword = new String[10][2];
     private static List<Customer> customersCollection = new ArrayList<>();
+        public List<Flight> flightsRegisteredByUser;
+    public List<Integer> numOfTicketsBookedByUser;
 
     // ************************************************************
     // Behaviours/Methods
